@@ -1356,14 +1356,41 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .header-section {
+                padding: 20px 0;
+            }
+
             .profile-container {
                 flex-direction: column;
                 text-align: center;
                 gap: 20px;
             }
 
+            .profile-image {
+                width: 150px;
+                height: 150px;
+                margin: 0 auto;
+            }
+
+            .profile-info h1 {
+                font-size: 2rem;
+                margin-bottom: 10px;
+            }
+
             .action-buttons {
                 justify-content: center;
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+
+            .btn-primary-custom,
+            .btn-secondary-custom {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+                padding: 14px 20px;
+                font-size: 0.95rem;
             }
 
             .theme-toggle {
@@ -1381,10 +1408,20 @@
             .cards-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
+                padding: 20px 15px;
             }
 
             .portfolio-card {
                 padding: 20px;
+                margin-bottom: 0;
+            }
+
+            .card-header {
+                padding: 15px 20px;
+            }
+
+            .card-title {
+                font-size: 1.2rem;
             }
 
             .experience-content {
@@ -1394,6 +1431,158 @@
 
             .experience-year {
                 align-self: flex-start;
+            }
+
+            .social-links-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .social-link-item {
+                padding: 12px;
+                min-height: auto;
+            }
+
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                margin-bottom: 8px;
+            }
+
+            .social-icon i {
+                font-size: 1.2rem;
+            }
+
+            .social-name {
+                font-size: 0.85rem;
+            }
+
+            /* Project cards responsive */
+            .project-card {
+                padding: 15px;
+            }
+
+            .project-title {
+                font-size: 1.1rem;
+                margin-bottom: 8px;
+            }
+
+            .project-description {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+
+            /* Skills responsive */
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .skill-item {
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+
+            /* Timeline responsive */
+            .timeline-item {
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+
+            .timeline-year {
+                font-size: 0.9rem;
+                padding: 4px 8px;
+            }
+
+            .timeline-content h4 {
+                font-size: 1.1rem;
+                margin-bottom: 8px;
+            }
+
+            .timeline-content p {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+
+            /* Container responsive */
+            .container {
+                padding: 0 15px;
+            }
+
+            /* Main content responsive */
+            .main-content {
+                padding: 20px 0;
+            }
+
+            /* About text responsive */
+            .about-text p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+                margin-bottom: 15px;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .profile-info h1 {
+                font-size: 1.8rem;
+            }
+
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+
+            .action-buttons {
+                gap: 8px;
+            }
+
+            .btn-primary-custom,
+            .btn-secondary-custom {
+                padding: 12px 16px;
+                font-size: 0.9rem;
+            }
+
+            .social-links-container {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .cards-grid {
+                padding: 15px 10px;
+                gap: 15px;
+            }
+
+            .portfolio-card {
+                padding: 15px;
+            }
+
+            .card-header {
+                padding: 12px 15px;
+            }
+
+            .card-title {
+                font-size: 1.1rem;
+            }
+
+            .timeline-item {
+                padding: 12px;
+            }
+
+            .project-card {
+                padding: 12px;
+            }
+
+            .chat-button {
+                bottom: 15px;
+                right: 15px;
+                padding: 10px 14px;
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -1420,11 +1609,11 @@
                     <div class="role">Software Engineer | Full-Stack Developer</div>
                     
                     <div class="action-buttons">
-                        <a href="#contact" class="btn-primary-custom">
+                        <a href="https://calendly.com/dwightanthonyb" class="btn-primary-custom" target="_blank" onclick="if(!this.href.includes('calendly')) { this.href='mailto:dwightanthonyb@gmail.com?subject=Schedule a Call - Portfolio Inquiry&body=Hi Dwight,%0D%0A%0D%0AI would like to schedule a call with you.%0D%0A%0D%0APlease let me know your availability.%0D%0A%0D%0AThank you!'; }">
                             <i class="bi bi-calendar-check"></i>
                             Schedule a Call
                         </a>
-                        <a href="mailto:dwightanthonyb@gmail.com" class="btn-secondary-custom">
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=dwightanthonyb@gmail.com&su=Portfolio Inquiry&body=Hi Dwight,%0D%0A%0D%0AI came across your portfolio and would like to connect with you.%0D%0A%0D%0AThank you!" class="btn-secondary-custom" target="_blank">
                             <i class="bi bi-envelope"></i>
                             Send Email
                         </a>
@@ -1923,7 +2112,7 @@
                                     </div>
                                     <span class="social-name">Instagram</span>
                                 </a>
-                                <a href="mailto:dwightanthonyb@gmail.com" class="social-link-item">
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=dwightanthonyb@gmail.com&su=Hello from Portfolio&body=Hi Dwight,%0D%0A%0D%0AI came across your portfolio and would like to connect with you.%0D%0A%0D%0AThank you!" class="social-link-item" target="_blank">
                                     <div class="social-icon email-icon">
                                         <i class="bi bi-envelope"></i>
                                     </div>
@@ -2419,7 +2608,7 @@
 
         // Chat button functionality
         document.getElementById('chatButton').addEventListener('click', () => {
-            window.open('mailto:dwightanthonyb@gmail.com?subject=Let\'s Chat - Portfolio Inquiry', '_blank');
+            window.open('https://mail.google.com/mail/?view=cm&fs=1&to=dwightanthonyb@gmail.com&su=Let\'s Chat - Portfolio Inquiry&body=Hi Dwight,%0D%0A%0D%0AI came across your portfolio and would like to chat with you.%0D%0A%0D%0AThank you!', '_blank');
         });
 
         // Smooth scrolling for anchor links
