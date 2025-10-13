@@ -1,0 +1,2440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dwight Anthony Buma-at - Full Stack Developer</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Header Section */
+        .header-section {
+            padding: 40px 0;
+            border-bottom: 1px solid #e5e7eb;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .profile-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 3px solid #f3f4f6;
+        }
+
+        .profile-info h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #000000;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #3b82f6;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-left: 10px;
+        }
+
+        .location {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #6b7280;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .role {
+            color: #374151;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary-custom {
+            background: #000000;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary-custom:hover {
+            background: #374151;
+            color: white;
+        }
+
+        .btn-secondary-custom {
+            background: #f3f4f6;
+            color: #374151;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary-custom:hover {
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        .achievement-badge {
+            background: #3b82f6;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-badge:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            background: #f3f4f6;
+            border: none;
+            width: 50px;
+            height: 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle.dark {
+            background: #374151;
+        }
+
+        .theme-toggle-slider {
+            width: 21px;
+            height: 21px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        .theme-toggle.dark .theme-toggle-slider {
+            transform: translateX(25px);
+        }
+
+        /* Footer */
+        .portfolio-footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 40px;
+        }
+
+        .portfolio-footer p {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Chat Button */
+        .chat-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #000000;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .chat-button:hover {
+            background: #374151;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Dark Theme */
+        body.dark-theme {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        body.dark-theme .header-section {
+            border-bottom-color: #374151;
+        }
+
+        body.dark-theme .profile-info h1 {
+            color: #ffffff;
+        }
+
+        body.dark-theme .location {
+            color: #9ca3af;
+        }
+
+        body.dark-theme .role {
+            color: #d1d5db;
+        }
+
+        body.dark-theme .btn-primary-custom {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        body.dark-theme .btn-primary-custom:hover {
+            background: #f3f4f6;
+            color: #000000;
+        }
+
+        body.dark-theme .btn-secondary-custom {
+            background: #374151;
+            color: #ffffff;
+        }
+
+        body.dark-theme .btn-secondary-custom:hover {
+            background: #4b5563;
+            color: #ffffff;
+        }
+
+        body.dark-theme .chat-button {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        body.dark-theme .chat-button:hover {
+            background: #f3f4f6;
+            color: #000000;
+        }
+
+        body.dark-theme .portfolio-footer {
+            border-top-color: #374151;
+        }
+
+        body.dark-theme .portfolio-footer p {
+            color: #9ca3af;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto auto;
+            gap: 20px;
+            row-gap: 8px;
+            align-items: stretch;
+        }
+
+        .about-card {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .experience-card {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .tech-stack-card {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .projects-card {
+            grid-column: 2;
+            grid-row: 2;
+        }
+
+        .certifications-card {
+            grid-column: 1;
+            grid-row: 3;
+        }
+
+        .beyond-coding-card {
+            grid-column: 2;
+            grid-row: 3;
+        }
+
+        /* Social Links within Beyond Coding */
+        .social-links-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .social-links-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .social-links-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: space-between;
+        }
+
+        .portfolio-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e5e7eb;
+        }
+
+        .card-header {
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #000000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.01em;
+        }
+
+        .view-all-link {
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .view-all-link:hover {
+            color: #3b82f6;
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .projects-card .card-content {
+            padding: 0;
+            gap: 0;
+        }
+
+        /* About Section */
+        .about-text p {
+            color: #374151;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        /* Beyond Coding Section */
+        .beyond-coding-text p {
+            color: #374151;
+            line-height: 1.7;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        /* Certifications Section */
+        .certification-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px;
+            background: #f8fafc;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .certification-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .certification-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .certification-info {
+            flex: 1;
+        }
+
+        .certification-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #000000;
+            margin: 0 0 4px 0;
+            letter-spacing: -0.01em;
+        }
+
+        .certification-issuer {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin: 0 0 4px 0;
+            font-weight: 500;
+        }
+
+        .certification-year {
+            font-size: 0.8rem;
+            color: #3b82f6;
+            font-weight: 600;
+            background: #dbeafe;
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+
+        .certification-view {
+            width: 35px;
+            height: 35px;
+            background: #3b82f6;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .certification-item:hover .certification-view {
+            background: #2563eb;
+            transform: scale(1.1);
+        }
+
+        /* Certification Modal */
+        .cert-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .cert-modal-content {
+            position: relative;
+            margin: 2% auto;
+            width: 90%;
+            max-width: 1200px;
+            height: 90vh;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .cert-modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10000;
+            transition: all 0.3s ease;
+        }
+
+        .cert-modal-close:hover {
+            color: #3b82f6;
+            transform: scale(1.1);
+        }
+
+        #certPDF {
+            border: none;
+            border-radius: 12px;
+        }
+
+        /* PDF viewer iframe styling */
+        .pdf-viewer {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+        }
+
+        /* Project Detail Modal */
+        .project-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .project-modal-content {
+            position: relative;
+            margin: 2% auto;
+            width: 90%;
+            max-width: 1000px;
+            background: #ffffff;
+            border-radius: 16px;
+            overflow-y: auto;
+            max-height: 90vh;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10000;
+            transition: all 0.3s ease;
+        }
+
+        .project-modal-close:hover {
+            color: #3b82f6;
+            transform: scale(1.1);
+        }
+
+        .project-detail-header {
+            padding: 40px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .project-detail-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #000000;
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
+        }
+
+        .project-detail-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .project-detail-tag {
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #bfdbfe;
+        }
+
+        .project-detail-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .project-detail-link {
+            background: #000000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .project-detail-link:hover {
+            background: #374151;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .project-detail-body {
+            padding: 40px;
+        }
+
+        .project-detail-section {
+            margin-bottom: 35px;
+        }
+
+        .project-detail-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-detail-section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.01em;
+        }
+
+        .project-detail-section-title i {
+            color: #3b82f6;
+        }
+
+        .project-detail-text {
+            color: #374151;
+            line-height: 1.8;
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+
+        .project-detail-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .project-detail-list li {
+            color: #374151;
+            line-height: 1.8;
+            font-size: 1rem;
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .project-detail-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .project-highlight-box {
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .project-highlight-box p {
+            color: #166534;
+            font-weight: 500;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Dark Theme for Project Modal */
+        body.dark-theme .project-modal-content {
+            background: #1f2937;
+        }
+
+        body.dark-theme .project-detail-header {
+            border-bottom-color: #374151;
+        }
+
+        body.dark-theme .project-detail-title {
+            color: #ffffff;
+        }
+
+        body.dark-theme .project-detail-tag {
+            background: #1e3a8a;
+            color: #bfdbfe;
+            border-color: #1e40af;
+        }
+
+        body.dark-theme .project-detail-link {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        body.dark-theme .project-detail-link:hover {
+            background: #f3f4f6;
+            color: #000000;
+        }
+
+        body.dark-theme .project-detail-section-title {
+            color: #ffffff;
+        }
+
+        body.dark-theme .project-detail-text {
+            color: #d1d5db;
+        }
+
+        body.dark-theme .project-detail-list li {
+            color: #d1d5db;
+        }
+
+        body.dark-theme .project-highlight-box {
+            background: #064e3b;
+            border-left-color: #10b981;
+        }
+
+        body.dark-theme .project-highlight-box p {
+            color: #d1fae5;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+
+        .experience-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: -25px;
+            width: 2px;
+            background: #e5e7eb;
+        }
+
+        .experience-dot {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            background: #3b82f6;
+            border-radius: 50%;
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 0 2px #3b82f6;
+        }
+
+        .experience-item.inactive .experience-dot {
+            background: #9ca3af;
+            box-shadow: 0 0 0 2px #9ca3af;
+        }
+
+        .experience-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .experience-text h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 2px;
+            letter-spacing: -0.01em;
+        }
+
+        .experience-text p {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .experience-details {
+            margin-top: 8px;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .experience-details li {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-bottom: 6px;
+            padding-left: 16px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .experience-details li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+        }
+
+        .experience-year {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #6b7280;
+            white-space: nowrap;
+        }
+
+        /* Tech Stack Section */
+        .tech-category {
+            margin-bottom: 20px;
+        }
+
+        .tech-category-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-tag {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid #c7d2fe;
+        }
+
+        /* Dark Theme */
+        body.dark-theme .portfolio-card {
+            background: #1f2937;
+            border-color: #374151;
+        }
+
+        body.dark-theme .card-title {
+            color: #ffffff;
+        }
+
+        body.dark-theme .view-all-link {
+            color: #9ca3af;
+        }
+
+        body.dark-theme .view-all-link:hover {
+            color: #60a5fa;
+        }
+
+        body.dark-theme .about-text p {
+            color: #d1d5db;
+        }
+
+        body.dark-theme .beyond-coding-text p {
+            color: #d1d5db;
+        }
+
+        body.dark-theme .social-links-section {
+            border-top-color: #4b5563;
+        }
+
+        body.dark-theme .social-links-title {
+            color: #ffffff;
+        }
+
+        /* Dark Theme for Certifications */
+        body.dark-theme .certification-item {
+            background: #374151;
+            border-color: #4b5563;
+        }
+
+        body.dark-theme .certification-title {
+            color: #ffffff;
+        }
+
+        body.dark-theme .certification-issuer {
+            color: #9ca3af;
+        }
+
+        body.dark-theme .certification-year {
+            color: #60a5fa;
+            background: #1e3a8a;
+        }
+
+        body.dark-theme .certification-view {
+            background: #2563eb;
+        }
+
+        body.dark-theme .certification-item:hover .certification-view {
+            background: #3b82f6;
+        }
+
+        body.dark-theme .cert-modal-content {
+            background: #1f2937;
+        }
+
+        body.dark-theme .experience-text h3 {
+            color: #ffffff;
+        }
+
+        body.dark-theme .experience-text p {
+            color: #9ca3af;
+        }
+
+        body.dark-theme .experience-year {
+            color: #9ca3af;
+        }
+
+        body.dark-theme .experience-details li {
+            color: #9ca3af;
+        }
+
+        body.dark-theme .experience-item:not(:last-child)::after {
+            background: #374151;
+        }
+
+        body.dark-theme .tech-category-title {
+            color: #d1d5db;
+        }
+
+        body.dark-theme .tech-tag {
+            background: #374151;
+            color: #e5e7eb;
+            border-color: #4b5563;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-height: 700px;
+            overflow-y: auto;
+            padding: 0;
+            margin: 0 -20px -20px -20px;
+            padding: 0 20px 20px 20px;
+        }
+
+        .projects-grid::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .projects-grid::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 3px;
+        }
+
+        .projects-grid::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+
+        .projects-grid::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        .project-item {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 15px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .project-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-header {
+            margin-bottom: 12px;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 120px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-image.gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 2rem;
+        }
+
+        .project-image.portfolio-gradient {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #ec4899 100%);
+            color: white;
+            font-size: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-image.cms-gradient {
+            background: linear-gradient(135deg, #059669 0%, #0891b2 50%, #0284c7 100%);
+            color: white;
+            font-size: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-image.ecommerce-gradient {
+            background: linear-gradient(135deg, #dc2626 0%, #ea580c 50%, #f59e0b 100%);
+            color: white;
+            font-size: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-image.juice-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #84cc16 50%, #eab308 100%);
+            color: white;
+            font-size: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .project-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #000000;
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+
+        .project-description {
+            font-size: 0.85rem;
+            color: #6b7280;
+            line-height: 1.4;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .project-tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin: 8px 0;
+        }
+
+        .project-tech-tag {
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid #bfdbfe;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            background: #f3f4f6;
+            color: #374151;
+            padding: 8px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+        }
+
+        .project-link:hover {
+            background: #e5e7eb;
+            color: #000000;
+            transform: translateY(-1px);
+        }
+
+        .project-link i {
+            font-size: 1rem;
+        }
+
+        .project-case-study-btn {
+            background: #3b82f6;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            width: auto;
+            height: auto;
+        }
+
+        .project-case-study-btn:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+            color: white;
+        }
+
+        /* Dark Theme for Projects */
+        body.dark-theme .project-item {
+            background: #374151;
+            border-color: #4b5563;
+        }
+
+        body.dark-theme .project-image {
+            background: #4b5563;
+        }
+
+        body.dark-theme .project-title {
+            color: #ffffff;
+        }
+
+        body.dark-theme .project-description {
+            color: #d1d5db;
+        }
+
+        body.dark-theme .project-tech-tag {
+            background: #1f2937;
+            color: #e5e7eb;
+            border-color: #374151;
+        }
+
+        body.dark-theme .project-link {
+            background: #4b5563;
+            color: #d1d5db;
+        }
+
+        body.dark-theme .project-link:hover {
+            background: #6b7280;
+            color: #ffffff;
+        }
+
+        body.dark-theme .project-case-study-btn {
+            background: #2563eb;
+        }
+
+        body.dark-theme .project-case-study-btn:hover {
+            background: #3b82f6;
+        }
+
+        /* Social Links Section */
+        .social-links-card .card-content {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: space-between;
+        }
+
+        .social-link-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px;
+            background: #f8fafc;
+            border-radius: 10px;
+            margin-bottom: 0;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            flex: 1;
+            min-width: calc(50% - 6px);
+            justify-content: center;
+        }
+
+        .social-link-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background: #f1f5f9;
+        }
+
+        .social-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .linkedin-icon {
+            background: #0077b5;
+            color: white;
+        }
+
+        .github-icon {
+            background: #333333;
+            color: white;
+        }
+
+        .instagram-icon {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+        }
+
+        .email-icon {
+            background: #0066cc;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .email-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                #4285f4 0%, 
+                #4285f4 25%, 
+                #ea4335 25%, 
+                #ea4335 50%, 
+                #fbbc05 50%, 
+                #fbbc05 75%, 
+                #34a853 75%, 
+                #34a853 100%);
+            opacity: 0.9;
+        }
+
+        .email-icon i {
+            position: relative;
+            z-index: 1;
+            font-weight: bold;
+        }
+
+        .facebook-icon {
+            background: #1877f2;
+            color: white;
+        }
+
+        .discord-icon {
+            background: #5865f2;
+            color: white;
+        }
+
+        .social-name {
+            font-size: 12px;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        /* Dark Theme for Social Links */
+        body.dark-theme .social-link-item {
+            background: #374151;
+            border-color: #4b5563;
+        }
+
+        body.dark-theme .social-link-item:hover {
+            background: #4b5563;
+        }
+
+        body.dark-theme .social-name {
+            color: #ffffff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .profile-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .action-buttons {
+                justify-content: center;
+            }
+
+            .theme-toggle {
+                position: static;
+                margin: 20px auto;
+            }
+
+            .chat-button {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 16px;
+                font-size: 0.9rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .portfolio-card {
+                padding: 20px;
+            }
+
+            .experience-content {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .experience-year {
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle">
+        <div class="theme-toggle-slider">
+            <i class="bi bi-sun-fill"></i>
+        </div>
+    </button>
+
+    <!-- Header Section -->
+    <div class="header-section">
+        <div class="container">
+            <div class="profile-container">
+                <img src="https://dwightbuma-at.github.io/Digital-Portfolio/pic.jpg" alt="Dwight Anthony Buma-at" class="profile-image">
+                <div class="profile-info">
+                    <h1>Dwight Anthony C. Buma-at</h1>
+                    <div class="location">
+                        <i class="bi bi-geo-alt"></i>
+                        Davao City, Philippines
+                    </div>
+                    <div class="role">Software Engineer | Full-Stack Developer</div>
+                    
+                    <div class="action-buttons">
+                        <a href="#contact" class="btn-primary-custom">
+                            <i class="bi bi-calendar-check"></i>
+                            Schedule a Call
+                        </a>
+                        <a href="mailto:dwightanthonyb@gmail.com" class="btn-secondary-custom">
+                            <i class="bi bi-envelope"></i>
+                            Send Email
+                        </a>
+                        <a href="dwight resume.pdf" class="btn-secondary-custom" download>
+                            <i class="bi bi-download"></i>
+                            Download Resume
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div class="cards-grid">
+                <!-- About Card (Left Column, Wide) -->
+                <div class="portfolio-card about-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="bi bi-briefcase"></i>
+                            About
+                        </h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="about-text">
+                            <p>I'm a 4th-year Information Technology student at Ateneo de Davao University driven to create digital solutions that serve local communities and businesses. I believe technology should solve real problems for real people—which is why I've built systems like a complaint management platform for Davao City barangays and a unified e-commerce solution for local art businesses.</p>
+                            <p>As a full-stack developer, I specialize in Django and Python for backend systems, with expertise in building RESTful APIs, implementing real-time notifications via SendGrid and Twilio, and managing complex database architectures using PostgreSQL and Supabase. On the frontend, I craft responsive, user-friendly interfaces with JavaScript, React, and modern CSS frameworks.</p>
+                            <p>What drives me isn't just writing code—it's seeing a barangay official efficiently manage citizen complaints, or a local business owner processing their first online order. As a Dean's Lister and GIA Scholar, I bring the same dedication to my development work that I bring to my studies: attention to detail, commitment to quality, and a constant desire to improve.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Card (Right Column, Narrow) -->
+                <div class="portfolio-card experience-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="bi bi-briefcase"></i>
+                            Experience
+                        </h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="experience-timeline">
+                            <div class="experience-item">
+                                <div class="experience-dot"></div>
+                                <div class="experience-content">
+                                    <div class="experience-text">
+                                        <h3>Software Engineer</h3>
+                                        <p>Complaint Management System</p>
+                                        <ul class="experience-details">
+                                            <li>Architected and deployed a full-stack complaint management platform for Davao City barangays using Django, Supabase (PostgreSQL), and Railway, serving 100+ barangay officials and residents</li>
+                                            <li>Engineered RESTful API endpoints with Django REST Framework for complaint submission, status tracking, and admin dashboards with role-based access control</li>
+                                            <li>Implemented automated email notifications using SendGrid for real-time complaint status updates, reducing manual communication overhead by 70%</li>
+                                        </ul>
+                                    </div>
+                                    <div class="experience-year">2025</div>
+                                </div>
+                            </div>
+                            <div class="experience-item">
+                                <div class="experience-dot"></div>
+                                <div class="experience-content">
+                                    <div class="experience-text">
+                                        <h3>Full-Stack Developer</h3>
+                                        <p>Bare Bears Kadayawan Unified System</p>
+                                        <ul class="experience-details">
+                                            <li>Led end-to-end development of a System Integration & Architecture e-commerce platform for a Davao City local business, handling project planning, system architecture design, and technical documentation</li>
+                                            <li>Built complete full-stack solution: designed PostgreSQL database schemas, developed Django REST APIs, created responsive frontend with JavaScript/Bootstrap, and deployed production application</li>
+                                            <li>Integrated 5 core business modules (Ordering, POS, Booking, Purchasing, Inventory) with real-time synchronization, providing unified analytics dashboard for business operations</li>
+                                        </ul>
+                                    </div>
+                                    <div class="experience-year">2024</div>
+                                </div>
+                            </div>
+                            <div class="experience-item">
+                                <div class="experience-dot"></div>
+                                <div class="experience-content">
+                                    <div class="experience-text">
+                                        <h3>Front-End Developer</h3>
+                                        <p>Fresh Juice Co. E-commerce Website</p>
+                                        <ul class="experience-details">
+                                            <li>Designed and developed a fully responsive e-commerce website for Filipino local healthy juices using HTML5, CSS3, JavaScript, and Bootstrap 5</li>
+                                            <li>Implemented shopping cart functionality with local storage persistence, quantity controls, and real-time price calculations across multiple product categories</li>
+                                            <li>Created checkout system with multiple payment options (COD, GCash, Bank Transfer) and delivery modes, enhancing user experience with smooth animations and transitions</li>
+                                        </ul>
+                                    </div>
+                                    <div class="experience-year">2025</div>
+                                </div>
+                            </div>
+                            <div class="experience-item">
+                                <div class="experience-dot"></div>
+                                <div class="experience-content">
+                                    <div class="experience-text">
+                                        <h3>Web Dev Workshop</h3>
+                                        <p>Full-Stack Development Training</p>
+                                    </div>
+                                    <div class="experience-year">2024</div>
+                                </div>
+                            </div>
+                            <div class="experience-item">
+                                <div class="experience-dot"></div>
+                                <div class="experience-content">
+                                    <div class="experience-text">
+                                        <h3>Cisco CyberSec</h3>
+                                        <p>Cybersecurity Fundamentals</p>
+                                    </div>
+                                    <div class="experience-year">2023</div>
+                                </div>
+                            </div>
+                            <div class="experience-item">
+                                <div class="experience-dot"></div>
+                                <div class="experience-content">
+                                    <div class="experience-text">
+                                        <h3>Networking Experience</h3>
+                                        <p>Network Administration & Security</p>
+                                    </div>
+                                    <div class="experience-year">2023</div>
+                                </div>
+                            </div>
+                            <div class="experience-item inactive">
+                                <div class="experience-dot"></div>
+                                <div class="experience-content">
+                                    <div class="experience-text">
+                                        <h3>IT Student</h3>
+                                        <p>Ateneo de Davao University</p>
+                                    </div>
+                                    <div class="experience-year">2022</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tech Stack Card (Left Column) -->
+                <div class="portfolio-card tech-stack-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="bi bi-gear"></i>
+                            Tech Stack
+                        </h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="tech-category">
+                            <h4 class="tech-category-title">Frontend</h4>
+                            <div class="tech-tags">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Bootstrap</span>
+                                <span class="tech-tag">Tailwind</span>
+                            </div>
+                        </div>
+                        <div class="tech-category">
+                            <h4 class="tech-category-title">Backend</h4>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Django</span>
+                                <span class="tech-tag">REST Framework</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Express</span>
+                            </div>
+                        </div>
+                        <div class="tech-category">
+                            <h4 class="tech-category-title">Database</h4>
+                            <div class="tech-tags">
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Supabase</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">SQLite</span>
+                            </div>
+                        </div>
+                        <div class="tech-category">
+                            <h4 class="tech-category-title">Cloud & Deployment</h4>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Railway</span>
+                                <span class="tech-tag">Vercel</span>
+                                <span class="tech-tag">AWS</span>
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">Heroku</span>
+                            </div>
+                        </div>
+                        <div class="tech-category">
+                            <h4 class="tech-category-title">APIs & Services</h4>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Twilio</span>
+                                <span class="tech-tag">SendGrid</span>
+                                <span class="tech-tag">Stripe</span>
+                                <span class="tech-tag">Firebase</span>
+                                <span class="tech-tag">REST APIs</span>
+                            </div>
+                        </div>
+                        <div class="tech-category">
+                            <h4 class="tech-category-title">Tools & Others</h4>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Git</span>
+                                <span class="tech-tag">GitHub</span>
+                                <span class="tech-tag">Figma</span>
+                                <span class="tech-tag">Postman</span>
+                                <span class="tech-tag">VS Code</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications Card (Left Column) -->
+                <div class="portfolio-card certifications-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="bi bi-award"></i>
+                            Recent Certifications
+                        </h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="certification-item" onclick="openCertModal('cert1')" style="cursor: pointer;">
+                            <div class="certification-icon">
+                                <i class="bi bi-laptop-fill"></i>
+                            </div>
+                            <div class="certification-info">
+                                <h4 class="certification-title">IT Week 2025</h4>
+                                <p class="certification-issuer">Certificate of Attendance</p>
+                                <span class="certification-year">2025</span>
+                            </div>
+                            <div class="certification-view">
+                                <i class="bi bi-eye-fill"></i>
+                            </div>
+                        </div>
+                        <div class="certification-item" onclick="openCertModal('cert2')" style="cursor: pointer;">
+                            <div class="certification-icon">
+                                <i class="bi bi-palette-fill"></i>
+                            </div>
+                            <div class="certification-info">
+                                <h4 class="certification-title">Arrupe Exhibit</h4>
+                                <p class="certification-issuer">Certificate of Attendance</p>
+                                <span class="certification-year">2025</span>
+                            </div>
+                            <div class="certification-view">
+                                <i class="bi bi-eye-fill"></i>
+                            </div>
+                        </div>
+                        <div class="certification-item" onclick="openCertModal('cert3')" style="cursor: pointer;">
+                            <div class="certification-icon">
+                                <i class="bi bi-diagram-3-fill"></i>
+                            </div>
+                            <div class="certification-info">
+                                <h4 class="certification-title">CCNA: Introduction to Networks</h4>
+                                <p class="certification-issuer">Cisco Networking Academy</p>
+                                <span class="certification-year">2024</span>
+                            </div>
+                            <div class="certification-view">
+                                <i class="bi bi-eye-fill"></i>
+                            </div>
+                        </div>
+                        <div class="certification-item" onclick="openCertModal('cert4')" style="cursor: pointer;">
+                            <div class="certification-icon">
+                                <i class="bi bi-cpu-fill"></i>
+                            </div>
+                            <div class="certification-info">
+                                <h4 class="certification-title">Artificial Intelligence</h4>
+                                <p class="certification-issuer">IT Week 2022 - Certificate of Participation</p>
+                                <span class="certification-year">2022</span>
+                            </div>
+                            <div class="certification-view">
+                                <i class="bi bi-eye-fill"></i>
+                            </div>
+                        </div>
+                        <div class="certification-item" onclick="openCertModal('cert5')" style="cursor: pointer;">
+                            <div class="certification-icon">
+                                <i class="bi bi-graph-up-arrow"></i>
+                            </div>
+                            <div class="certification-info">
+                                <h4 class="certification-title">Machine Learning</h4>
+                                <p class="certification-issuer">IT Week 2022 - Certificate of Participation</p>
+                                <span class="certification-year">2022</span>
+                            </div>
+                            <div class="certification-view">
+                                <i class="bi bi-eye-fill"></i>
+                            </div>
+                        </div>
+                        <div class="certification-item" onclick="openCertModal('cert6')" style="cursor: pointer;">
+                            <div class="certification-icon">
+                                <i class="bi bi-pencil-fill"></i>
+                            </div>
+                            <div class="certification-info">
+                                <h4 class="certification-title">UI/UX Development</h4>
+                                <p class="certification-issuer">IT Week 2022 - Certificate of Participation</p>
+                                <span class="certification-year">2022</span>
+                            </div>
+                            <div class="certification-view">
+                                <i class="bi bi-eye-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects Card (Right Column) -->
+                <div class="portfolio-card projects-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="bi bi-grid-3x3"></i>
+                            Projects
+                        </h3>
+                        <a href="https://github.com/DwightBuma-at" class="view-all-link" target="_blank">View All</a>
+                    </div>
+                    <div class="card-content">
+                        <div class="projects-grid">
+                            <div class="project-item">
+                                <div class="project-header">
+                                    <div class="project-image cms-gradient">
+                                        <i class="bi bi-clipboard-data"></i>
+                                    </div>
+                                </div>
+                                <div class="project-info">
+                                    <h4 class="project-title">Complaint Management System</h4>
+                                    <p class="project-description">Online complaint reporting system for Davao City barangays, enabling residents to submit complaints directly to barangay admins.</p>
+                                    <div class="project-tech-tags">
+                                        <span class="project-tech-tag">Django</span>
+                                        <span class="project-tech-tag">Python</span>
+                                        <span class="project-tech-tag">Supabase</span>
+                                        <span class="project-tech-tag">JavaScript</span>
+                                        <span class="project-tech-tag">Railway</span>
+                                        <span class="project-tech-tag">Github</span>
+                                        <span class="project-tech-tag">SendGrid</span>
+                                        <span class="project-tech-tag">REST Framework</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <button class="project-case-study-btn" onclick="openProjectModal('project1')">
+                                            <i class="bi bi-file-text"></i>
+                                            View Case Study
+                                        </button>
+                                        <a href="https://github.com/DwightBuma-at/CAPSTONE-2_Complaint-Management-System-" class="project-link" target="_blank">
+                                            <i class="bi bi-github"></i>
+                                        </a>
+                                        <a href="https://dvobarangaycms.vip" class="project-link" target="_blank">
+                                            <i class="bi bi-box-arrow-up-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="project-item">
+                                <div class="project-header">
+                                    <div class="project-image ecommerce-gradient">
+                                        <i class="bi bi-cart-check"></i>
+                                    </div>
+                                </div>
+                                <div class="project-info">
+                                    <h4 class="project-title">Bare Bears Kadayawan Unified System</h4>
+                                    <p class="project-description">System Integration and Architecture project: Full-stack e-commerce platform for a local art business in Davao City with integrated Ordering, POS, Booking, Purchasing, and Inventory Management.</p>
+                                    <div class="project-tech-tags">
+                                        <span class="project-tech-tag">Django</span>
+                                        <span class="project-tech-tag">Python</span>
+                                        <span class="project-tech-tag">PostgreSQL</span>
+                                        <span class="project-tech-tag">JavaScript</span>
+                                        <span class="project-tech-tag">Bootstrap</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <button class="project-case-study-btn" onclick="openProjectModal('project2')">
+                                            <i class="bi bi-file-text"></i>
+                                            View Case Study
+                                        </button>
+                                        <a href="https://github.com/DwightBuma-at/SIA-2_BAREBEARS-KADAYAWAN" class="project-link" target="_blank">
+                                            <i class="bi bi-github"></i>
+                                        </a>
+                                        <a href="#" class="project-link" target="_blank">
+                                            <i class="bi bi-box-arrow-up-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="project-item">
+                                <div class="project-header">
+                                    <div class="project-image juice-gradient">
+                                        <i class="bi bi-cup-straw"></i>
+                                    </div>
+                                </div>
+                                <div class="project-info">
+                                    <h4 class="project-title">Fresh Juice Co.</h4>
+                                    <p class="project-description">A modern, responsive e-commerce website for selling Filipino local healthy juices with shopping cart, checkout system, and multiple payment options.</p>
+                                    <div class="project-tech-tags">
+                                        <span class="project-tech-tag">HTML5</span>
+                                        <span class="project-tech-tag">CSS3</span>
+                                        <span class="project-tech-tag">JavaScript</span>
+                                        <span class="project-tech-tag">Bootstrap</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <button class="project-case-study-btn" onclick="openProjectModal('project3')">
+                                            <i class="bi bi-file-text"></i>
+                                            View Case Study
+                                        </button>
+                                        <a href="https://github.com/DwightBuma-at/Fresh-Juice-Co." class="project-link" target="_blank">
+                                            <i class="bi bi-github"></i>
+                                        </a>
+                                        <a href="https://dwightbuma-at.github.io/Fresh-Juice-Co./" class="project-link" target="_blank">
+                                            <i class="bi bi-box-arrow-up-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="project-item">
+                                <div class="project-header">
+                                    <div class="project-image portfolio-gradient">
+                                        <i class="bi bi-laptop"></i>
+                                    </div>
+                                </div>
+                                <div class="project-info">
+                                    <h4 class="project-title">Digital Portfolio</h4>
+                                    <p class="project-description">A modern, responsive digital portfolio showcasing my skills and projects with animated backgrounds and interactive elements.</p>
+                                    <div class="project-tech-tags">
+                                        <span class="project-tech-tag">HTML</span>
+                                        <span class="project-tech-tag">CSS</span>
+                                        <span class="project-tech-tag">JavaScript</span>
+                                        <span class="project-tech-tag">Bootstrap</span>
+                                        <span class="project-tech-tag">Github</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <a href="https://github.com/DwightBuma-at/Digital-Portfolio" class="project-link" target="_blank">
+                                            <i class="bi bi-github"></i>
+                                        </a>
+                                        <a href="https://dwightbuma-at.github.io/Digital-Portfolio/" class="project-link" target="_blank">
+                                            <i class="bi bi-box-arrow-up-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="project-item">
+                                <div class="project-header">
+                                    <div class="project-image portfolio-gradient">
+                                        <i class="bi bi-laptop"></i>
+                                    </div>
+                                </div>
+                                <div class="project-info">
+                                    <h4 class="project-title">Digital Portfolio 2</h4>
+                                    <p class="project-description">Enhanced personal portfolio showcasing projects, skills, and professional experience with modern design and responsive layout.</p>
+                                    <div class="project-tech-tags">
+                                        <span class="project-tech-tag">HTML</span>
+                                        <span class="project-tech-tag">CSS</span>
+                                        <span class="project-tech-tag">JavaScript</span>
+                                        <span class="project-tech-tag">Bootstrap</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <a href="https://github.com/DwightBuma-at/Digital-Portfolio-2-" class="project-link" target="_blank">
+                                            <i class="bi bi-github"></i>
+                                        </a>
+                                        <a href="https://dwightbuma-at.github.io/Digital-Portfolio-2-/" class="project-link" target="_blank">
+                                            <i class="bi bi-box-arrow-up-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beyond Coding Card (Right Column) -->
+                <div class="portfolio-card beyond-coding-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="bi bi-book"></i>
+                            Beyond Coding
+                        </h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="beyond-coding-text">
+                            <p>When not writing code, I enjoy exploring AI technologies and staying updated with the latest innovations in artificial intelligence and machine learning.</p>
+                            <p>I love hanging out with friends over coffee, sharing ideas, and building meaningful connections. Life's about balance, I also enjoy going to the gym, taking on side quests, and engaging in conversations with people from different walks of life.</p>
+                            <p>I believe in continuous learning, whether it's through tech communities, mentoring fellow students, or simply enjoying life's wholesome moments. Every interaction is an opportunity to grow and inspire others.</p>
+                        </div>
+                        
+                        <!-- Social Links Section -->
+                        <div class="social-links-section">
+                            <h3 class="social-links-title">
+                                <i class="bi bi-link-45deg"></i>
+                                Social Links
+                            </h3>
+                            <div class="social-links-container">
+                                <a href="https://www.linkedin.com/in/dwightbuma-at/" class="social-link-item" target="_blank">
+                                    <div class="social-icon linkedin-icon">
+                                        <i class="bi bi-linkedin"></i>
+                                    </div>
+                                    <span class="social-name">LinkedIn</span>
+                                </a>
+                                <a href="https://github.com/DwightBuma-at" class="social-link-item" target="_blank">
+                                    <div class="social-icon github-icon">
+                                        <i class="bi bi-github"></i>
+                                    </div>
+                                    <span class="social-name">GitHub</span>
+                                </a>
+                                <a href="https://www.instagram.com/_dwightanthonyy/" class="social-link-item" target="_blank">
+                                    <div class="social-icon instagram-icon">
+                                        <i class="bi bi-instagram"></i>
+                                    </div>
+                                    <span class="social-name">Instagram</span>
+                                </a>
+                                <a href="mailto:dwightanthonyb@gmail.com" class="social-link-item">
+                                    <div class="social-icon email-icon">
+                                        <i class="bi bi-envelope"></i>
+                                    </div>
+                                    <span class="social-name">Email</span>
+                                </a>
+                                <a href="https://www.facebook.com/dwightanthony.bumaat/" class="social-link-item" target="_blank">
+                                    <div class="social-icon facebook-icon">
+                                        <i class="bi bi-facebook"></i>
+                                    </div>
+                                    <span class="social-name">Facebook</span>
+                                </a>
+                                <a href="https://discord.com/users/dw1ght17" class="social-link-item" target="_blank">
+                                    <div class="social-icon discord-icon">
+                                        <i class="bi bi-discord"></i>
+                                    </div>
+                                    <span class="social-name">Discord</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="portfolio-footer">
+        <div class="container">
+            <p>&copy; 2025 Dwight Anthony C. Buma-at. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Certification Modals -->
+    <div id="certModal" class="cert-modal">
+        <div class="cert-modal-content">
+            <span class="cert-modal-close" onclick="closeCertModal()">&times;</span>
+            <iframe id="certPDF" src="" class="pdf-viewer" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <!-- Project Detail Modals -->
+    <!-- Project 1: Complaint Management System -->
+    <div id="projectModal1" class="project-modal">
+        <div class="project-modal-content">
+            <span class="project-modal-close" onclick="closeProjectModal('projectModal1')">&times;</span>
+            <div class="project-detail-header">
+                <h2 class="project-detail-title">Complaint Management System</h2>
+                <div class="project-detail-tags">
+                    <span class="project-detail-tag">Django</span>
+                    <span class="project-detail-tag">Python</span>
+                    <span class="project-detail-tag">Supabase</span>
+                    <span class="project-detail-tag">PostgreSQL</span>
+                    <span class="project-detail-tag">REST Framework</span>
+                    <span class="project-detail-tag">SendGrid</span>
+                    <span class="project-detail-tag">Railway</span>
+                </div>
+                <div class="project-detail-links">
+                    <a href="https://github.com/DwightBuma-at/CAPSTONE-2_Complaint-Management-System-" class="project-detail-link" target="_blank">
+                        <i class="bi bi-github"></i>
+                        View on GitHub
+                    </a>
+                    <a href="https://dvobarangaycms.vip" class="project-detail-link" target="_blank">
+                        <i class="bi bi-box-arrow-up-right"></i>
+                        Visit Live Site
+                    </a>
+                </div>
+            </div>
+            <div class="project-detail-body">
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-exclamation-circle"></i>
+                        The Problem
+                    </h3>
+                    <p class="project-detail-text">
+                        Barangays in Davao City lacked a centralized digital system for residents to submit and track complaints. The existing process relied heavily on manual paper-based forms, walk-in submissions, and phone calls, leading to:
+                    </p>
+                    <ul class="project-detail-list">
+                        <li>Long response times and poor tracking of complaint status</li>
+                        <li>Lack of transparency for residents on the progress of their concerns</li>
+                        <li>Inefficient communication between residents and barangay officials</li>
+                        <li>Difficulty in generating reports and analyzing complaint trends</li>
+                    </ul>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-lightbulb"></i>
+                        The Solution
+                    </h3>
+                    <p class="project-detail-text">
+                        I architected and deployed a full-stack web application that digitizes the entire complaint management workflow. The system allows residents to submit complaints online with photo evidence, while barangay officials can efficiently manage, track, and resolve issues through a dedicated admin dashboard.
+                    </p>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-code-square"></i>
+                        My Role & Key Contributions
+                    </h3>
+                    <ul class="project-detail-list">
+                        <li><strong>Backend Architecture:</strong> Built the entire backend using Django and Django REST Framework, designing RESTful API endpoints for complaint submission, status updates, and admin operations</li>
+                        <li><strong>Database Design:</strong> Implemented PostgreSQL database using Supabase, designing normalized schemas for users, complaints, barangay data, and audit logs with proper indexing for performance</li>
+                        <li><strong>Authentication & Authorization:</strong> Developed role-based access control (RBAC) system with three user types: residents, barangay staff, and super admins, each with specific permissions</li>
+                        <li><strong>Real-Time Notifications:</strong> Integrated SendGrid email service to send automated notifications when complaints are submitted, updated, or resolved</li>
+                        <li><strong>Deployment & DevOps:</strong> Deployed the application on Railway with continuous deployment from GitHub, configured environment variables, and set up SSL certificates</li>
+                    </ul>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-gear"></i>
+                        Technical Decisions & Why
+                    </h3>
+                    <ul class="project-detail-list">
+                        <li><strong>Django + Supabase:</strong> Chose Django for rapid development with built-in admin interface and ORM. Supabase provided managed PostgreSQL with real-time capabilities and easier scaling compared to traditional MySQL setups</li>
+                        <li><strong>Railway over Heroku:</strong> Selected Railway for deployment due to better pricing, faster deployment times, and seamless GitHub integration without complex buildpacks</li>
+                        <li><strong>SendGrid for Emails:</strong> Implemented SendGrid instead of SMTP for reliable email delivery with built-in analytics and reputation management</li>
+                        <li><strong>REST Framework:</strong> Used DRF to create a clean API structure that could potentially support mobile app integration in the future</li>
+                    </ul>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-wrench"></i>
+                        Challenges & Solutions
+                    </h3>
+                    <ul class="project-detail-list">
+                        <li><strong>Challenge:</strong> Handling image uploads from residents reporting complaints
+                            <br><strong>Solution:</strong> Implemented Cloudinary integration for cloud-based image storage and optimization, reducing server load and ensuring fast image delivery</li>
+                        <li><strong>Challenge:</strong> Ensuring email deliverability in production environment
+                            <br><strong>Solution:</strong> Configured SPF and DKIM records with SendGrid, implemented email verification, and added fallback notification system</li>
+                        <li><strong>Challenge:</strong> Managing different barangay jurisdictions and permissions
+                            <br><strong>Solution:</strong> Created a hierarchical permission system where each barangay admin can only view/manage complaints from their specific barangay</li>
+                    </ul>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-trophy"></i>
+                        Results & Impact
+                    </h3>
+                    <div class="project-highlight-box">
+                        <p><strong>✓ Deployed and serving 100+ barangay officials and residents</strong></p>
+                        <p><strong>✓ Reduced manual communication overhead by 70% through automated email notifications</strong></p>
+                        <p><strong>✓ Average complaint resolution time improved with better tracking and accountability</strong></p>
+                        <p><strong>✓ Successfully handling peak loads during community events with zero downtime</strong></p>
+                    </div>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-book"></i>
+                        What I Learned
+                    </h3>
+                    <p class="project-detail-text">
+                        This project taught me the importance of user-centered design when building government-facing applications. I learned to balance simplicity for non-technical users with robust functionality for administrators. The experience of deploying and maintaining a production application with real users gave me invaluable insights into error handling, logging, and the importance of comprehensive testing before releases.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 2: Bare Bears Unified System -->
+    <div id="projectModal2" class="project-modal">
+        <div class="project-modal-content">
+            <span class="project-modal-close" onclick="closeProjectModal('projectModal2')">&times;</span>
+            <div class="project-detail-header">
+                <h2 class="project-detail-title">Bare Bears Kadayawan Unified System</h2>
+                <div class="project-detail-tags">
+                    <span class="project-detail-tag">Django</span>
+                    <span class="project-detail-tag">Python</span>
+                    <span class="project-detail-tag">PostgreSQL</span>
+                    <span class="project-detail-tag">JavaScript</span>
+                    <span class="project-detail-tag">Bootstrap</span>
+                </div>
+                <div class="project-detail-links">
+                    <a href="https://github.com/DwightBuma-at/SIA-2_BAREBEARS-KADAYAWAN" class="project-detail-link" target="_blank">
+                        <i class="bi bi-github"></i>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="project-detail-body">
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-exclamation-circle"></i>
+                        The Problem
+                    </h3>
+                    <p class="project-detail-text">
+                        A local art business shop in Davao City needed a comprehensive e-commerce solution but was operating with disconnected systems: spreadsheets for online orders, manual POS, Facebook messages for bookings, and paper-based purchasing. This fragmentation caused inventory discrepancies, delayed responses, and no unified business insights.
+                    </p>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-lightbulb"></i>
+                        The Solution
+                    </h3>
+                    <p class="project-detail-text">
+                        I architected and developed an integrated e-commerce platform as a System Integration and Architecture project, unifying all business operations into a single system with 5 modules: Ordering, POS, Booking, Purchasing, and Inventory Management. The platform provides real-time synchronization and centralized analytics.
+                    </p>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-code-square"></i>
+                        My Role & Key Contributions
+                    </h3>
+                    <ul class="project-detail-list">
+                        <li><strong>Project Planning & Architecture:</strong> Led system design from requirements gathering through technical specifications, creating architecture diagrams and module integration plans</li>
+                        <li><strong>Full-Stack Development:</strong> Built entire application end-to-end—designed normalized PostgreSQL database schemas, developed Django REST APIs for all modules, created responsive Bootstrap frontend with JavaScript</li>
+                        <li><strong>System Integration:</strong> Integrated all 5 modules with real-time data synchronization using database triggers and signals, ensuring inventory accuracy across POS and online orders</li>
+                        <li><strong>Deployment & DevOps:</strong> Configured production environment, set up database migrations, implemented backup strategies, and deployed live application</li>
+                        <li><strong>Documentation:</strong> Created comprehensive technical documentation including system architecture, API endpoints, database schemas, and user manuals</li>
+                    </ul>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-gear"></i>
+                        Technical Decisions & Why
+                    </h3>
+                    <ul class="project-detail-list">
+                        <li><strong>Django Monolith:</strong> Chose a monolithic Django architecture over microservices for faster development and easier state management given the team size and timeline</li>
+                        <li><strong>PostgreSQL Triggers:</strong> Implemented database triggers to automatically update inventory levels when orders are placed or POS transactions occur, ensuring real-time accuracy</li>
+                        <li><strong>Session-based Auth:</strong> Used Django's built-in session authentication instead of JWT for simpler implementation and better security for a primarily web-based application</li>
+                        <li><strong>Bootstrap for UI:</strong> Leveraged Bootstrap for rapid UI development while maintaining responsive design across devices</li>
+                    </ul>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-wrench"></i>
+                        Challenges & Solutions
+                    </h3>
+                    <ul class="project-detail-list">
+                        <li><strong>Challenge:</strong> Preventing race conditions when multiple staff process orders simultaneously
+                            <br><strong>Solution:</strong> Implemented database-level locks and transaction isolation to ensure inventory updates are atomic</li>
+                        <li><strong>Challenge:</strong> Coordinating work across 4 developers with different skill levels
+                            <br><strong>Solution:</strong> Established clear module boundaries, created comprehensive documentation, and held daily standups to address blockers</li>
+                        <li><strong>Challenge:</strong> Migrating existing product data from spreadsheets
+                            <br><strong>Solution:</strong> Created custom Django management commands to bulk import and validate data with error reporting</li>
+                    </ul>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-trophy"></i>
+                        Results & Impact
+                    </h3>
+                    <div class="project-highlight-box">
+                        <p><strong>✓ Successfully delivered complete System Integration & Architecture project from planning to deployment</strong></p>
+                        <p><strong>✓ Unified 5 disconnected business operations into single integrated e-commerce platform</strong></p>
+                        <p><strong>✓ Eliminated inventory discrepancies and reduced booking response time from hours to minutes</strong></p>
+                        <p><strong>✓ Empowered local Davao City business with professional e-commerce solution and real-time analytics</strong></p>
+                    </div>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-book"></i>
+                        What I Learned
+                    </h3>
+                    <p class="project-detail-text">
+                        Leading this System Integration project end-to-end taught me the full software development lifecycle—from stakeholder meetings and requirements analysis to architecture design, implementation, deployment, and documentation. I gained deep understanding of how to integrate multiple business systems, the importance of comprehensive planning before coding, and how proper documentation ensures long-term maintainability. Most importantly, I learned to deliver solutions that directly solve real business problems for local entrepreneurs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 3: Fresh Juice Co. -->
+    <div id="projectModal3" class="project-modal">
+        <div class="project-modal-content">
+            <span class="project-modal-close" onclick="closeProjectModal('projectModal3')">&times;</span>
+            <div class="project-detail-header">
+                <h2 class="project-detail-title">Fresh Juice Co.</h2>
+                <div class="project-detail-tags">
+                    <span class="project-detail-tag">HTML5</span>
+                    <span class="project-detail-tag">CSS3</span>
+                    <span class="project-detail-tag">JavaScript</span>
+                    <span class="project-detail-tag">Bootstrap 5</span>
+                    <span class="project-detail-tag">Local Storage API</span>
+                </div>
+                <div class="project-detail-links">
+                    <a href="https://github.com/DwightBuma-at/Fresh-Juice-Co." class="project-detail-link" target="_blank">
+                        <i class="bi bi-github"></i>
+                        View on GitHub
+                    </a>
+                    <a href="https://dwightbuma-at.github.io/Fresh-Juice-Co./" class="project-detail-link" target="_blank">
+                        <i class="bi bi-box-arrow-up-right"></i>
+                        Visit Live Site
+                    </a>
+                </div>
+            </div>
+            <div class="project-detail-body">
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-exclamation-circle"></i>
+                        The Problem
+                    </h3>
+                    <p class="project-detail-text">
+                        Filipino local juice businesses struggle to establish an online presence due to the complexity and cost of e-commerce platforms. Many rely solely on social media for orders, which:
+                    </p>
+                    <ul class="project-detail-list">
+                        <li>Lacks professional branding and credibility</li>
+                        <li>Makes it difficult for customers to browse full product catalogs</li>
+                        <li>Provides no structured ordering or cart management system</li>
+                        <li>Limits payment options and delivery tracking capabilities</li>
+                    </ul>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-lightbulb"></i>
+                        The Solution
+                    </h3>
+                    <p class="project-detail-text">
+                        I created a lightweight, fully responsive e-commerce website that runs entirely in the browser without requiring backend infrastructure. The solution provides a professional shopping experience with product catalog, cart management, and checkout—all deployable on free hosting platforms like GitHub Pages.
+                    </p>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-code-square"></i>
+                        My Role & Key Contributions
+                    </h3>
+                    <ul class="project-detail-list">
+                        <li><strong>Frontend Development:</strong> Designed and built the entire user interface from scratch using HTML5, CSS3, and vanilla JavaScript without relying on heavy frameworks</li>
+                        <li><strong>Shopping Cart Logic:</strong> Implemented a complete shopping cart system with add/remove items, quantity controls, and real-time price calculations using JavaScript</li>
+                        <li><strong>State Management:</strong> Utilized the Browser Local Storage API to persist cart data across sessions, ensuring customers don't lose their selections on page refresh</li>
+                        <li><strong>Responsive Design:</strong> Created mobile-first responsive layouts with Bootstrap 5, ensuring optimal viewing experience on phones, tablets, and desktops</li>
+                        <li><strong>User Experience:</strong> Added smooth animations, transitions, and interactive feedback to enhance the overall shopping experience</li>
+                    </ul>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-gear"></i>
+                        Technical Decisions & Why
+                    </h3>
+                    <ul class="project-detail-list">
+                        <li><strong>Vanilla JavaScript:</strong> Chose vanilla JS over React/Vue to keep the project lightweight, fast-loading, and easy to customize for non-technical business owners</li>
+                        <li><strong>Local Storage for Cart:</strong> Used Local Storage instead of cookies for larger storage capacity and simpler implementation without needing server-side sessions</li>
+                        <li><strong>Bootstrap 5:</strong> Leveraged Bootstrap for rapid development of professional-looking components while maintaining small bundle sizes</li>
+                        <li><strong>Static Site Deployment:</strong> Designed as a static site to enable free hosting on GitHub Pages, making it accessible to small businesses with limited budgets</li>
+                    </ul>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-wrench"></i>
+                        Challenges & Solutions
+                    </h3>
+                    <ul class="project-detail-list">
+                        <li><strong>Challenge:</strong> Managing cart state without a backend database
+                            <br><strong>Solution:</strong> Implemented a robust Local Storage system with JSON serialization, data validation, and error handling for edge cases</li>
+                        <li><strong>Challenge:</strong> Handling checkout without payment gateway integration
+                            <br><strong>Solution:</strong> Created a multi-option checkout form supporting COD, GCash, and bank transfer with clear instructions, allowing business owners to handle payments manually</li>
+                        <li><strong>Challenge:</strong> Optimizing performance without build tools
+                            <br><strong>Solution:</strong> Minimized DOM manipulations, used CSS for animations instead of JS, and implemented lazy loading for images</li>
+                    </ul>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-trophy"></i>
+                        Results & Impact
+                    </h3>
+                    <div class="project-highlight-box">
+                        <p><strong>✓ 100% client-side application with zero backend costs</strong></p>
+                        <p><strong>✓ Fully responsive design working seamlessly across all devices</strong></p>
+                        <p><strong>✓ Complete e-commerce functionality without database requirements</strong></p>
+                        <p><strong>✓ Free deployment on GitHub Pages, making it accessible to small businesses</strong></p>
+                    </div>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-book"></i>
+                        What I Learned
+                    </h3>
+                    <p class="project-detail-text">
+                        This project reinforced the value of understanding web fundamentals. By building without frameworks, I gained deeper knowledge of browser APIs, event handling, and state management. I also learned to design solutions that match business constraints—sometimes a simple static site is more appropriate than a complex full-stack application. The experience taught me to prioritize user experience and performance even without modern build tools.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Button -->
+    <button class="chat-button" id="chatButton">
+        <i class="bi bi-chat-dots"></i>
+        Chat with Dwight
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Certification Modal Functions
+        function openCertModal(certId) {
+            const modal = document.getElementById('certModal');
+            const pdfIframe = document.getElementById('certPDF');
+            
+            const certificates = {
+                'cert1': 'images/BUMA-AT, DWIGHT ANTHONY CAGANDE - Certificate of Attendance [IT WEEK 2025].pdf',
+                'cert2': 'images/BUMA-AT, DWIGHT ANTHONY CAGANDE - Arrupe Exhibit Certificate of Attendance.pdf',
+                'cert3': 'images/CCNAITNUpdated20251013-31-crqwnb.pdf',
+                'cert4': 'images/IT Week 22 - [Artificial Intelligence] Certificate of Participation (Buma-at, Dwight Anthony).pdf',
+                'cert5': 'images/IT Week 22 - [Machine Learning] Certificate of Participation (Buma-at, Dwight Anthony C.).pdf',
+                'cert6': 'images/IT Week 22 - [UI_UX Development] Certificate of Participation (Buma-at, Dwight Anthony).pdf'
+            };
+            
+            // Add parameters to hide PDF toolbar
+            const pdfUrl = certificates[certId] + '#toolbar=0&navpanes=0&scrollbar=1';
+            pdfIframe.src = pdfUrl;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeCertModal() {
+            const modal = document.getElementById('certModal');
+            const pdfIframe = document.getElementById('certPDF');
+            modal.style.display = 'none';
+            pdfIframe.src = '';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const certModal = document.getElementById('certModal');
+            const projectModal1 = document.getElementById('projectModal1');
+            const projectModal2 = document.getElementById('projectModal2');
+            const projectModal3 = document.getElementById('projectModal3');
+            
+            if (event.target == certModal) {
+                closeCertModal();
+            }
+            if (event.target == projectModal1) {
+                closeProjectModal('projectModal1');
+            }
+            if (event.target == projectModal2) {
+                closeProjectModal('projectModal2');
+            }
+            if (event.target == projectModal3) {
+                closeProjectModal('projectModal3');
+            }
+        }
+
+        // Project Modal Functions
+        function openProjectModal(projectId) {
+            const modalMap = {
+                'project1': 'projectModal1',
+                'project2': 'projectModal2',
+                'project3': 'projectModal3'
+            };
+            
+            const modalId = modalMap[projectId];
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeProjectModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-theme');
+            themeToggle.classList.add('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            themeToggle.classList.toggle('dark');
+            
+            if (body.classList.contains('dark-theme')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Chat button functionality
+        document.getElementById('chatButton').addEventListener('click', () => {
+            window.open('mailto:dwightanthonyb@gmail.com?subject=Let\'s Chat - Portfolio Inquiry', '_blank');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
