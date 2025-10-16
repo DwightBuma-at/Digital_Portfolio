@@ -1107,6 +1107,15 @@
             justify-content: center;
         }
 
+        .project-image.elevation-gradient {
+            background: linear-gradient(135deg, #be123c 0%, #e11d48 50%, #f43f5e 100%);
+            color: white;
+            font-size: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .project-info {
             display: flex;
             flex-direction: column;
@@ -1976,6 +1985,38 @@
                             
                             <div class="project-item">
                                 <div class="project-header">
+                                    <div class="project-image elevation-gradient">
+                                        <i class="bi bi-activity"></i>
+                                    </div>
+                                </div>
+                                <div class="project-info">
+                                    <h4 class="project-title">Elevation Fitness Gym Management System</h4>
+                                    <p class="project-description">Complete gym management solution for Elevation Fitness in Davao City, modernizing member tracking, attendance logging, and membership renewals from traditional logbook to digital platform.</p>
+                                    <div class="project-tech-tags">
+                                        <span class="project-tech-tag">HTML5</span>
+                                        <span class="project-tech-tag">CSS3</span>
+                                        <span class="project-tech-tag">JavaScript</span>
+                                        <span class="project-tech-tag">Bootstrap 5</span>
+                                        <span class="project-tech-tag">LocalStorage</span>
+                                        <span class="project-tech-tag">Font Awesome</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <button class="project-case-study-btn" onclick="openProjectModal('project5')">
+                                            <i class="bi bi-file-text"></i>
+                                            View Case Study
+                                        </button>
+                                        <a href="https://github.com/DwightBuma-at/Elevation-Gym-Management-System" class="project-link" target="_blank">
+                                            <i class="bi bi-github"></i>
+                                        </a>
+                                        <a href="https://dwightbuma-at.github.io/Elevation-Gym-Management-System/" class="project-link" target="_blank">
+                                            <i class="bi bi-box-arrow-up-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="project-item">
+                                <div class="project-header">
                                     <div class="project-image cms-gradient">
                                         <i class="bi bi-clipboard-data"></i>
                                     </div>
@@ -2683,6 +2724,137 @@
         </div>
     </div>
 
+    <!-- Project 5: Elevation Fitness Gym Management System -->
+    <div id="projectModal5" class="project-modal">
+        <div class="project-modal-content">
+            <span class="project-modal-close" onclick="closeProjectModal('projectModal5')">&times;</span>
+            <div class="project-detail-header">
+                <h2 class="project-detail-title">Elevation Fitness Gym Management System</h2>
+                <div class="project-detail-tags">
+                    <span class="project-detail-tag">HTML5</span>
+                    <span class="project-detail-tag">CSS3</span>
+                    <span class="project-detail-tag">JavaScript ES6+</span>
+                    <span class="project-detail-tag">Bootstrap 5</span>
+                    <span class="project-detail-tag">LocalStorage API</span>
+                    <span class="project-detail-tag">Font Awesome 6</span>
+                </div>
+                <div class="project-detail-links">
+                    <a href="https://github.com/DwightBuma-at/Elevation-Gym-Management-System" class="project-detail-link" target="_blank">
+                        <i class="bi bi-github"></i>
+                        View on GitHub
+                    </a>
+                    <a href="https://dwightbuma-at.github.io/Elevation-Gym-Management-System/" class="project-detail-link" target="_blank">
+                        <i class="bi bi-box-arrow-up-right"></i>
+                        Visit Live Site
+                    </a>
+                </div>
+            </div>
+            <div class="project-detail-body">
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-exclamation-circle"></i>
+                        The Problem
+                    </h3>
+                    <p class="project-detail-text">
+                        Elevation Fitness Gym in Davao City was facing operational inefficiencies with their outdated manual logbook system for tracking member attendance and managing memberships:
+                    </p>
+                    <ul class="project-detail-list">
+                        <li>Staff relied on handwritten logbooks to record member check-ins, making it difficult to track attendance patterns and verify membership status</li>
+                        <li>No automated way to identify expired memberships, leading to awkward confrontations and revenue loss from unrenewed members</li>
+                        <li>Manual record-keeping made it challenging to generate reports on gym usage and member activity</li>
+                        <li>Membership renewal process required staff to manually search through paper records and update multiple documents</li>
+                        <li>No central database meant risk of lost records and inability to quickly look up member information</li>
+                        <li>Difficulty tracking trainer assignments and schedules</li>
+                    </ul>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-lightbulb"></i>
+                        The Solution
+                    </h3>
+                    <p class="project-detail-text">
+                        I developed a comprehensive web-based gym management system that completely replaces the manual logbook system with a modern digital platform. The solution provides staff with real-time member management, automated attendance tracking, instant membership status validation, and streamlined renewal workflows—all accessible from any device with a web browser. The system centralizes all gym operations in one intuitive interface designed specifically for Elevation Fitness's needs.
+                    </p>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-code-square"></i>
+                        My Role & Key Contributions
+                    </h3>
+                    <ul class="project-detail-list">
+                        <li><strong>Complete System Architecture:</strong> Designed and implemented the entire system architecture with separate modules for dashboard, members, attendance, trainers, and renewals using LocalStorage as the persistent database</li>
+                        <li><strong>Member Management Module:</strong> Built comprehensive member directory with full CRUD operations, photo uploads, emergency contacts, multiple membership plan options (Daily, Weekly, Monthly, 3/6/12 months), and automated expiry tracking</li>
+                        <li><strong>Attendance Tracking System:</strong> Developed real-time check-in functionality with member search, duplicate prevention (same day), expired member blocking, and complete attendance history with timestamp logging</li>
+                        <li><strong>Renewal Workflow:</strong> Created dedicated renewal interface that displays expired members, auto-fills renewal forms, calculates new expiry dates, and tracks payment status (Paid/Pending/Partial)</li>
+                        <li><strong>Dashboard Analytics:</strong> Implemented statistics dashboard showing total members, active vs. expired breakdown, and today's check-in counts for quick operational overview</li>
+                        <li><strong>User Interface Design:</strong> Designed modern, clean interface with custom CSS variables, responsive layouts, and professional color scheme optimized for gym staff workflow</li>
+                    </ul>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-gear"></i>
+                        Technical Decisions & Why
+                    </h3>
+                    <ul class="project-detail-list">
+                        <li><strong>LocalStorage Database:</strong> Selected browser LocalStorage over backend database to eliminate infrastructure costs, enable instant deployment, and simplify maintenance—ideal for a small local gym with limited IT budget</li>
+                        <li><strong>Vanilla JavaScript ES6+:</strong> Used pure JavaScript instead of React/Vue to keep the application lightweight, fast, and maintainable by future staff without requiring framework expertise</li>
+                        <li><strong>Modular Page Architecture:</strong> Separated functionality into distinct HTML pages (index, members, attendance, trainers) for clear navigation and easier feature updates</li>
+                        <li><strong>Bootstrap 5 + Custom CSS:</strong> Combined Bootstrap's responsive grid with custom CSS variables for consistent branding while maintaining rapid development speed</li>
+                        <li><strong>GitHub Pages Hosting:</strong> Deployed on GitHub Pages for zero hosting costs, automatic HTTPS, and reliable 24/7 availability without server management</li>
+                        <li><strong>Font Awesome Icons:</strong> Integrated Font Awesome for professional iconography that enhances user experience and visual clarity</li>
+                    </ul>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-wrench"></i>
+                        Challenges & Solutions
+                    </h3>
+                    <ul class="project-detail-list">
+                        <li><strong>Challenge:</strong> Ensuring data persistence and preventing data loss without a backend database
+                            <br><strong>Solution:</strong> Implemented robust LocalStorage management with JSON serialization, validation checks, and defensive programming to handle browser storage limits and edge cases</li>
+                        <li><strong>Challenge:</strong> Preventing duplicate same-day check-ins while maintaining fast lookup performance
+                            <br><strong>Solution:</strong> Created efficient timestamp-based duplicate detection that checks today's date against existing check-in records before allowing new entries</li>
+                        <li><strong>Challenge:</strong> Automatically flagging expired memberships without manual staff checks
+                            <br><strong>Solution:</strong> Built date comparison logic that runs on page load, calculates days remaining, and displays visual status indicators (Active/Expiring Soon/Expired) with color-coded badges</li>
+                        <li><strong>Challenge:</strong> Making member search fast enough for peak gym hours
+                            <br><strong>Solution:</strong> Implemented real-time case-insensitive search that filters across name, ID, email, and contact fields with debounced input for optimal performance</li>
+                        <li><strong>Challenge:</strong> Streamlining the renewal process to reduce staff workload
+                            <br><strong>Solution:</strong> Designed one-click renewal workflow where selecting an expired member auto-fills the form, and choosing a plan automatically calculates the new expiry date</li>
+                    </ul>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-trophy"></i>
+                        Results & Impact
+                    </h3>
+                    <div class="project-highlight-box">
+                        <p><strong>✓ Completely modernized Elevation Fitness Gym's operations by replacing manual logbook with digital platform</strong></p>
+                        <p><strong>✓ Reduced member check-in time from 2-3 minutes to under 10 seconds with instant member lookup and validation</strong></p>
+                        <p><strong>✓ Eliminated expired membership issues with automatic status tracking and visual alerts</strong></p>
+                        <p><strong>✓ Streamlined renewal process from 15+ minutes to under 2 minutes per member</strong></p>
+                        <p><strong>✓ Enabled data-driven decisions with real-time attendance analytics and member trend reporting</strong></p>
+                        <p><strong>✓ Zero ongoing costs with free GitHub Pages hosting—saving gym hundreds in software licensing fees</strong></p>
+                    </div>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-book"></i>
+                        What I Learned
+                    </h3>
+                    <p class="project-detail-text">
+                        Building this system for Elevation Fitness taught me the critical importance of designing software around actual user workflows rather than technical capabilities. By observing how gym staff interacted with their logbook system and understanding their pain points, I could create a digital solution that felt natural and immediately valuable rather than forcing them to adapt to unfamiliar processes. I learned that sometimes the best technology choice is the simplest one that solves the problem—LocalStorage was perfect for this use case despite being "less sophisticated" than a backend database. Most importantly, this project reinforced that great software empowers users to do their jobs better, and success is measured by how quickly staff adopt the system and how much time it saves them daily.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Chat Button -->
     <button class="chat-button" id="chatButton">
         <i class="bi bi-chat-dots"></i>
@@ -2730,6 +2902,7 @@
             const projectModal2 = document.getElementById('projectModal2');
             const projectModal3 = document.getElementById('projectModal3');
             const projectModal4 = document.getElementById('projectModal4');
+            const projectModal5 = document.getElementById('projectModal5');
             
             if (event.target == certModal) {
                 closeCertModal();
@@ -2746,6 +2919,9 @@
             if (event.target == projectModal4) {
                 closeProjectModal('projectModal4');
             }
+            if (event.target == projectModal5) {
+                closeProjectModal('projectModal5');
+            }
         }
 
         // Project Modal Functions
@@ -2754,7 +2930,8 @@
                 'project1': 'projectModal1',
                 'project2': 'projectModal2',
                 'project3': 'projectModal3',
-                'project4': 'projectModal4'
+                'project4': 'projectModal4',
+                'project5': 'projectModal5'
             };
             
             const modalId = modalMap[projectId];
