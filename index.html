@@ -19,11 +19,26 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: #ffffff;
             color: #000000;
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
         }
 
         /* Header Section */
@@ -32,6 +47,7 @@
             border-bottom: 1px solid #e5e7eb;
             max-width: 1200px;
             margin: 0 auto;
+            width: 100%;
         }
 
         .profile-container {
@@ -47,6 +63,9 @@
             border-radius: 12px;
             object-fit: cover;
             border: 3px solid #f3f4f6;
+            max-width: 100%;
+            height: auto;
+            aspect-ratio: 1/1;
         }
 
         .profile-info h1 {
@@ -189,15 +208,29 @@
         /* Footer */
         .portfolio-footer {
             text-align: center;
-            padding: 40px 0;
+            padding: 40px 20px;
             border-top: 1px solid #e5e7eb;
             margin-top: 40px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .portfolio-footer p {
             color: #6b7280;
             font-size: 0.9rem;
             margin: 0;
+        }
+
+        @media (max-width: 576px) {
+            .portfolio-footer {
+                padding: 30px 15px;
+                margin-top: 30px;
+            }
+
+            .portfolio-footer p {
+                font-size: 0.85rem;
+            }
         }
 
         /* Chat Button */
@@ -291,6 +324,7 @@
             padding: 40px 0;
             max-width: 1200px;
             margin: 0 auto;
+            width: 100%;
         }
 
         .cards-grid {
@@ -1116,6 +1150,15 @@
             justify-content: center;
         }
 
+        .project-image.sbtlc-gradient {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+            color: white;
+            font-size: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .project-info {
             display: flex;
             flex-direction: column;
@@ -1372,27 +1415,84 @@
             color: #ffffff;
         }
 
-        /* Responsive */
+        /* Responsive Design - Mobile First Approach */
+        
+        /* Large Tablets & Small Desktops (max-width: 1024px) */
+        @media (max-width: 1024px) {
+            .header-section {
+                padding: 30px 15px;
+            }
+
+            .profile-info h1 {
+                font-size: 2.2rem;
+            }
+
+            .profile-image {
+                width: 180px;
+                height: 180px;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .cards-grid {
+                gap: 20px;
+                padding: 25px 15px;
+            }
+
+            .project-tech-tags {
+                flex-wrap: wrap;
+            }
+
+            .project-tech-tag {
+                font-size: 0.7rem;
+                padding: 4px 8px;
+            }
+
+            .certification-item {
+                padding: 14px;
+            }
+        }
+
+        /* Tablets & Medium Devices (max-width: 768px) */
         @media (max-width: 768px) {
             .header-section {
-                padding: 20px 0;
+                padding: 25px 15px;
             }
 
             .profile-container {
                 flex-direction: column;
                 text-align: center;
+                align-items: center;
                 gap: 20px;
             }
 
             .profile-image {
-                width: 150px;
-                height: 150px;
+                width: 160px;
+                height: 160px;
                 margin: 0 auto;
+            }
+
+            .profile-info {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
 
             .profile-info h1 {
                 font-size: 2rem;
                 margin-bottom: 10px;
+                text-align: center;
+            }
+
+            .location {
+                justify-content: center;
+            }
+
+            .role {
+                text-align: center;
             }
 
             .action-buttons {
@@ -1400,26 +1500,28 @@
                 flex-direction: column;
                 gap: 10px;
                 align-items: center;
+                width: 100%;
             }
 
             .btn-primary-custom,
             .btn-secondary-custom {
                 width: 100%;
-                max-width: 280px;
+                max-width: 320px;
                 text-align: center;
                 padding: 14px 20px;
                 font-size: 0.95rem;
+                justify-content: center;
             }
 
             .theme-toggle {
-                position: static;
-                margin: 20px auto;
+                top: 15px;
+                right: 15px;
             }
 
             .chat-button {
                 bottom: 20px;
                 right: 20px;
-                padding: 12px 16px;
+                padding: 12px 18px;
                 font-size: 0.9rem;
             }
 
@@ -1435,16 +1537,23 @@
             }
 
             .card-header {
-                padding: 15px 20px;
+                padding: 16px 20px;
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
             }
 
             .card-title {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
+            }
+
+            .view-all-link {
+                align-self: flex-end;
             }
 
             .experience-content {
                 flex-direction: column;
-                gap: 5px;
+                gap: 8px;
             }
 
             .experience-year {
@@ -1457,37 +1566,71 @@
             }
 
             .social-link-item {
-                padding: 12px;
+                padding: 15px 12px;
                 min-height: auto;
             }
 
             .social-icon {
-                width: 40px;
-                height: 40px;
+                width: 45px;
+                height: 45px;
                 margin-bottom: 8px;
             }
 
             .social-icon i {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
             }
 
             .social-name {
                 font-size: 0.85rem;
             }
 
-            /* Project cards responsive */
-            .project-card {
-                padding: 15px;
+            /* Projects responsive */
+            .projects-grid {
+                max-height: none;
+                overflow-y: visible;
+            }
+
+            .project-item {
+                padding: 16px;
             }
 
             .project-title {
-                font-size: 1.1rem;
-                margin-bottom: 8px;
+                font-size: 1.15rem;
+                margin-bottom: 10px;
             }
 
             .project-description {
                 font-size: 0.9rem;
-                line-height: 1.5;
+                line-height: 1.6;
+            }
+
+            .project-image {
+                height: 100px;
+            }
+
+            .project-tech-tags {
+                gap: 6px;
+                margin-bottom: 12px;
+            }
+
+            .project-tech-tag {
+                font-size: 0.7rem;
+                padding: 4px 8px;
+            }
+
+            .project-links {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .project-case-study-btn {
+                font-size: 0.85rem;
+                padding: 8px 12px;
+            }
+
+            .project-link {
+                width: 36px;
+                height: 36px;
             }
 
             /* Skills responsive */
@@ -1497,29 +1640,58 @@
             }
 
             .skill-item {
-                padding: 12px;
+                padding: 14px 12px;
                 font-size: 0.9rem;
+            }
+
+            .skill-item i {
+                font-size: 1.5rem;
             }
 
             /* Timeline responsive */
             .timeline-item {
-                padding: 15px;
+                padding: 16px;
                 margin-bottom: 15px;
             }
 
             .timeline-year {
-                font-size: 0.9rem;
-                padding: 4px 8px;
+                font-size: 0.85rem;
+                padding: 5px 10px;
             }
 
             .timeline-content h4 {
-                font-size: 1.1rem;
+                font-size: 1.15rem;
                 margin-bottom: 8px;
             }
 
             .timeline-content p {
                 font-size: 0.9rem;
-                line-height: 1.5;
+                line-height: 1.6;
+            }
+
+            /* Certifications responsive */
+            .certification-item {
+                padding: 14px;
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+
+            .certification-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .certification-info {
+                text-align: center;
+            }
+
+            .certification-title {
+                font-size: 1rem;
+            }
+
+            .certification-issuer {
+                font-size: 0.85rem;
             }
 
             /* Container responsive */
@@ -1535,40 +1707,107 @@
             /* About text responsive */
             .about-text p {
                 font-size: 0.95rem;
-                line-height: 1.6;
+                line-height: 1.7;
                 margin-bottom: 15px;
+            }
+
+            /* Modal responsive */
+            .project-modal-content {
+                width: 95%;
+                max-width: 95%;
+                margin: 20px auto;
+                max-height: 90vh;
+            }
+
+            .project-detail-header {
+                padding: 20px;
+            }
+
+            .project-detail-title {
+                font-size: 1.5rem;
+            }
+
+            .project-detail-tags {
+                gap: 6px;
+            }
+
+            .project-detail-tag {
+                font-size: 0.7rem;
+                padding: 4px 8px;
+            }
+
+            .project-detail-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .project-detail-link {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .cert-modal-content {
+                width: 95%;
+                max-width: 95%;
+                margin: 20px auto;
             }
         }
 
-        /* Extra small devices */
-        @media (max-width: 480px) {
+        /* Mobile Devices (max-width: 576px) */
+        @media (max-width: 576px) {
+            .header-section {
+                padding: 20px 10px;
+            }
+
             .profile-info h1 {
-                font-size: 1.8rem;
+                font-size: 1.75rem;
+                line-height: 1.2;
+            }
+
+            .verified-badge {
+                display: block;
+                margin: 8px auto 0;
             }
 
             .profile-image {
-                width: 120px;
-                height: 120px;
+                width: 140px;
+                height: 140px;
+            }
+
+            .location {
+                font-size: 0.9rem;
+            }
+
+            .role {
+                font-size: 1rem;
             }
 
             .action-buttons {
-                gap: 8px;
+                gap: 10px;
+                width: 100%;
             }
 
             .btn-primary-custom,
             .btn-secondary-custom {
-                padding: 12px 16px;
+                width: 100%;
+                max-width: 100%;
+                padding: 12px 18px;
                 font-size: 0.9rem;
             }
 
-            .social-links-container {
-                grid-template-columns: 1fr;
-                gap: 12px;
+            .theme-toggle {
+                width: 45px;
+                height: 45px;
+                top: 10px;
+                right: 10px;
             }
 
-            .skills-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
+            .chat-button {
+                bottom: 15px;
+                right: 15px;
+                padding: 10px 15px;
+                font-size: 0.85rem;
             }
 
             .cards-grid {
@@ -1577,30 +1816,268 @@
             }
 
             .portfolio-card {
-                padding: 15px;
+                padding: 16px;
+                border-radius: 12px;
             }
 
             .card-header {
-                padding: 12px 15px;
+                padding: 14px 16px;
+            }
+
+            .card-title {
+                font-size: 1.2rem;
+            }
+
+            .view-all-link {
+                font-size: 0.85rem;
+            }
+
+            .social-links-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .social-link-item {
+                padding: 12px 10px;
+            }
+
+            .social-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .social-icon i {
+                font-size: 1.2rem;
+            }
+
+            .social-name {
+                font-size: 0.8rem;
+            }
+
+            /* Projects */
+            .project-item {
+                padding: 14px;
+            }
+
+            .project-image {
+                height: 90px;
+            }
+
+            .project-title {
+                font-size: 1.05rem;
+            }
+
+            .project-description {
+                font-size: 0.85rem;
+                line-height: 1.5;
+            }
+
+            .project-tech-tag {
+                font-size: 0.65rem;
+                padding: 3px 7px;
+            }
+
+            .project-case-study-btn {
+                font-size: 0.8rem;
+                padding: 7px 10px;
+            }
+
+            .project-link {
+                width: 34px;
+                height: 34px;
+                font-size: 0.9rem;
+            }
+
+            /* Skills */
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .skill-item {
+                padding: 12px 10px;
+                font-size: 0.85rem;
+            }
+
+            .skill-item i {
+                font-size: 1.3rem;
+                margin-bottom: 6px;
+            }
+
+            /* Timeline */
+            .timeline-item {
+                padding: 14px;
+            }
+
+            .timeline-year {
+                font-size: 0.8rem;
+                padding: 4px 8px;
+            }
+
+            .timeline-content h4 {
+                font-size: 1.05rem;
+            }
+
+            .timeline-content p {
+                font-size: 0.85rem;
+            }
+
+            /* Certifications */
+            .certification-item {
+                padding: 12px;
+            }
+
+            .certification-icon {
+                width: 45px;
+                height: 45px;
+            }
+
+            .certification-icon i {
+                font-size: 1.2rem;
+            }
+
+            .certification-title {
+                font-size: 0.95rem;
+            }
+
+            .certification-issuer {
+                font-size: 0.8rem;
+            }
+
+            .certification-year {
+                font-size: 0.75rem;
+            }
+
+            /* About text */
+            .about-text p {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+
+            /* Beyond coding */
+            .beyond-coding-text p {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+
+            /* Modals */
+            .project-modal-content {
+                width: 98%;
+                margin: 10px auto;
+                padding: 0;
+                max-height: 95vh;
+            }
+
+            .project-detail-header {
+                padding: 16px;
+            }
+
+            .project-detail-title {
+                font-size: 1.3rem;
+                line-height: 1.3;
+            }
+
+            .project-detail-tag {
+                font-size: 0.65rem;
+                padding: 3px 7px;
+            }
+
+            .project-detail-body {
+                padding: 16px;
+            }
+
+            .project-detail-section-title {
+                font-size: 1.1rem;
+            }
+
+            .project-detail-text {
+                font-size: 0.9rem;
+            }
+
+            .project-detail-list li {
+                font-size: 0.9rem;
+                margin-bottom: 10px;
+            }
+
+            .cert-modal-content {
+                width: 98%;
+                margin: 10px auto;
+            }
+
+            .pdf-viewer {
+                height: 70vh;
+            }
+        }
+
+        /* Extra Small Devices (max-width: 375px) */
+        @media (max-width: 375px) {
+            .profile-info h1 {
+                font-size: 1.5rem;
+            }
+
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+
+            .btn-primary-custom,
+            .btn-secondary-custom {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+            }
+
+            .social-links-container {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .cards-grid {
+                padding: 12px 8px;
+                gap: 12px;
+            }
+
+            .portfolio-card {
+                padding: 14px;
+            }
+
+            .card-header {
+                padding: 12px 14px;
             }
 
             .card-title {
                 font-size: 1.1rem;
             }
 
+            .project-item {
+                padding: 12px;
+            }
+
+            .project-title {
+                font-size: 1rem;
+            }
+
+            .project-description {
+                font-size: 0.8rem;
+            }
+
+            .certification-item {
+                padding: 10px;
+            }
+
             .timeline-item {
                 padding: 12px;
             }
 
-            .project-card {
-                padding: 12px;
-            }
-
             .chat-button {
-                bottom: 15px;
-                right: 15px;
-                padding: 10px 14px;
-                font-size: 0.85rem;
+                bottom: 12px;
+                right: 12px;
+                padding: 8px 12px;
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -1659,9 +2136,10 @@
                     </div>
                     <div class="card-content">
                         <div class="about-text">
-                            <p>I'm a 4th-year Information Technology student at Ateneo de Davao University driven to create digital solutions that serve local communities and businesses. I believe technology should solve real problems for real people which is why I've built systems like a complaint management platform for Davao City barangays and a unified e-commerce solution for local art businesses.</p>
-                            <p>As a full-stack developer, I specialize in Django and Python for backend systems, with expertise in building RESTful APIs, implementing real-time notifications via SendGrid and Twilio, and managing complex database architectures using PostgreSQL and Supabase. On the frontend, I craft responsive, user-friendly interfaces with JavaScript, React, and modern CSS frameworks.</p>
-                            <p>What drives me isn't just writing code, it's seeing a barangay official efficiently manage citizen complaints, or a local business owner processing their first online order. As a Dean's Lister and GIA Scholar, I bring the same dedication to my development work that I bring to my studies: attention to detail, commitment to quality, and a constant desire to improve.</p>
+                            <p>I'm Dwight, a 4th-year IT student at Ateneo de Davao University. I build web applications that solve real problems for communities and businesses in Davao City.</p>
+                            <p>I've worked on several projects including a complaint management platform for barangays, an e-commerce system for a local art business, and gym management systems. I can create everything from simple frontend websites to full-stack applications that help streamline your operations and make your work easier.</p>
+                            <p>I work with Django for backend systems, PostgreSQL for databases, and HTML, CSS, and JavaScript for the frontend. I use frameworks like Bootstrap and Tailwind for styling, and React.js and Vue.js for building interactive interfaces. What matters most to me is understanding what you really need and delivering reliable work that lasts.</p>
+                            <p>If you're looking for someone who genuinely cares about quality work, I'd be happy to help bring your ideas to life.</p>
                         </div>
                     </div>
                 </div>
@@ -1952,6 +2430,37 @@
                     </div>
                     <div class="card-content">
                         <div class="projects-grid">
+                            <div class="project-item">
+                                <div class="project-header">
+                                    <div class="project-image sbtlc-gradient">
+                                        <i class="bi bi-book-half"></i>
+                                    </div>
+                                </div>
+                                <div class="project-info">
+                                    <h4 class="project-title">Smart Brain Tutoring and Learning Center (SBTLC)</h4>
+                                    <p class="project-description">A comprehensive learning platform connecting students, tutors/teachers, sponsors, and principals through a multi-role management system. Features include enrollment, tutoring sessions, sponsorship programs, and administrative dashboards for each user type.</p>
+                                    <div class="project-tech-tags">
+                                        <span class="project-tech-tag">HTML5</span>
+                                        <span class="project-tech-tag">CSS3</span>
+                                        <span class="project-tech-tag">JavaScript</span>
+                                        <span class="project-tech-tag">Bootstrap 5</span>
+                                        <span class="project-tech-tag">Multi-Role Auth</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <button class="project-case-study-btn" onclick="openProjectModal('project6')">
+                                            <i class="bi bi-file-text"></i>
+                                            View Case Study
+                                        </button>
+                                        <a href="https://github.com/DwightBuma-at/SBTLC-Website-" class="project-link" target="_blank">
+                                            <i class="bi bi-github"></i>
+                                        </a>
+                                        <a href="https://dwightbuma-at.github.io/SBTLC-Website-/" class="project-link" target="_blank">
+                                            <i class="bi bi-box-arrow-up-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <div class="project-item">
                                 <div class="project-header">
                                     <div class="project-image gym-gradient">
@@ -2855,6 +3364,162 @@
         </div>
     </div>
 
+    <!-- Project Modal 6: SBTLC Website -->
+    <div id="projectModal6" class="project-modal">
+        <div class="project-modal-content">
+            <span class="project-modal-close" onclick="closeProjectModal('projectModal6')">&times;</span>
+            <div class="project-detail-header">
+                <h2 class="project-detail-title">Smart Brain Tutoring and Learning Center (SBTLC)</h2>
+                <div class="project-detail-tags">
+                    <span class="project-detail-tag">HTML5</span>
+                    <span class="project-detail-tag">CSS3</span>
+                    <span class="project-detail-tag">JavaScript</span>
+                    <span class="project-detail-tag">Bootstrap 5</span>
+                    <span class="project-detail-tag">Multi-Role Authentication</span>
+                    <span class="project-detail-tag">LocalStorage</span>
+                </div>
+                <div class="project-detail-links">
+                    <a href="https://github.com/DwightBuma-at/SBTLC-Website-" class="project-detail-link" target="_blank">
+                        <i class="bi bi-github"></i>
+                        View on GitHub
+                    </a>
+                    <a href="https://dwightbuma-at.github.io/SBTLC-Website-/" class="project-detail-link" target="_blank">
+                        <i class="bi bi-box-arrow-up-right"></i>
+                        Visit Live Site
+                    </a>
+                </div>
+            </div>
+            <div class="project-detail-body">
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-info-circle"></i>
+                        Project Overview
+                    </h3>
+                    <p class="project-detail-text">
+                        Smart Brain Tutoring and Learning Center (SBTLC) is a web-based educational platform designed to bridge the gap between students seeking quality education and tutors offering their expertise. The platform implements a unique "Enroll One, Empower Two" model where every enrollment contributes to a sponsorship fund, creating opportunities for underprivileged students while providing world-class tutoring services to paying families.
+                    </p>
+                    <p class="project-detail-text">
+                        The system manages multiple stakeholder types with distinct dashboards and functionalities: students can access personalized learning materials and track progress, tutors manage their teaching schedules and student interactions, sponsors monitor their contributions and impact, principals oversee institutional partnerships, and administrators control the entire platform ecosystem.
+                    </p>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-people"></i>
+                        Multi-Role System Architecture
+                    </h3>
+                    <p class="project-detail-text">
+                        The platform features a comprehensive role-based access control system with five distinct user types, each with customized dashboards and functionality:
+                    </p>
+                    <ul class="project-detail-list">
+                        <li><strong>Administrator Dashboard:</strong> Complete system oversight with user management, analytics, platform configuration, and monitoring capabilities across all roles
+                            <br><em>Login: Email: admin / Password: admin</em></li>
+                        <li><strong>Student Portal:</strong> Access to enrolled courses, tutoring sessions, progress tracking, certificate management, and communication with tutors
+                            <br><em>Login: Email: student / Password: student</em></li>
+                        <li><strong>Tutor Interface:</strong> Manage teaching schedules, student roster, lesson plans, progress assessments, and earnings dashboard
+                            <br><em>Login: Email: tutor / Password: tutor</em></li>
+                        <li><strong>Sponsor Panel:</strong> Track sponsored students, view impact metrics, manage contributions, and receive detailed reports on educational outcomes
+                            <br><em>Login: Email: sponsor / Password: sponsor</em></li>
+                        <li><strong>Principal Dashboard:</strong> Institutional partnership management, bulk student enrollment, school-wide analytics, and coordination with SBTLC administration
+                            <br><em>Login: Email: principal / Password: principal</em></li>
+                    </ul>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-lightbulb"></i>
+                        Key Features & Functionality
+                    </h3>
+                    <ul class="project-detail-list">
+                        <li><strong>Flexible Online Tutoring System:</strong> Credit-based booking mechanism allowing families to schedule personalized one-on-one or group tutoring sessions with expert educators across various subjects</li>
+                        <li><strong>Sponsorship Integration:</strong> Every student enrollment automatically contributes to a fund that sponsors education for underprivileged children, with transparent tracking and impact reporting</li>
+                        <li><strong>Role-Based Landing Pages:</strong> Customized landing pages for each user type (families, tutors, sponsors, principals) highlighting relevant features and call-to-actions</li>
+                        <li><strong>Session Management:</strong> Comprehensive scheduling system with calendar integration, automated reminders, and session recording capabilities for future review</li>
+                        <li><strong>Progress Dashboards:</strong> Real-time analytics for students showing learning progress, completed sessions, upcoming schedules, and achievement milestones</li>
+                        <li><strong>Tutor Matching Algorithm:</strong> Smart matching system connecting students with tutors based on subject expertise, availability, teaching style, and student learning preferences</li>
+                        <li><strong>Payment & Credit System:</strong> Integrated credit purchase and management system with various pricing tiers and subscription options</li>
+                        <li><strong>Communication Hub:</strong> Built-in messaging system enabling seamless communication between students, tutors, parents, and administrators</li>
+                    </ul>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-code-square"></i>
+                        Technical Implementation
+                    </h3>
+                    <ul class="project-detail-list">
+                        <li><strong>Frontend Architecture:</strong> Built with semantic HTML5, custom CSS3 with responsive design principles, and vanilla JavaScript for interactive components without framework dependencies</li>
+                        <li><strong>Authentication System:</strong> Role-based authentication with secure credential storage using LocalStorage, session management, and route protection based on user permissions</li>
+                        <li><strong>Responsive Design:</strong> Mobile-first approach using Bootstrap 5 grid system, custom breakpoints, and touch-optimized interfaces for seamless experience across devices</li>
+                        <li><strong>Modular Code Structure:</strong> Separate directories for landing pages and role-specific dashboards (landing-page/, roles/) enabling easy maintenance and feature additions</li>
+                        <li><strong>LocalStorage Database:</strong> Client-side data persistence for user sessions, bookings, progress tracking, and application state management without backend infrastructure costs</li>
+                        <li><strong>Modern UI/UX:</strong> Clean, professional interface with intuitive navigation, consistent color scheme, smooth animations, and accessibility-focused design patterns</li>
+                    </ul>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-gear"></i>
+                        Design Decisions & Rationale
+                    </h3>
+                    <ul class="project-detail-list">
+                        <li><strong>Multi-Role Architecture:</strong> Designed separate user interfaces for each stakeholder type to provide targeted functionality and optimized workflows instead of a one-size-fits-all dashboard</li>
+                        <li><strong>Credit-Based System:</strong> Implemented credit purchasing model over traditional subscription to provide families flexibility in tutoring frequency and reduce financial commitment barriers</li>
+                        <li><strong>Bootstrap Framework:</strong> Selected Bootstrap 5 for rapid prototyping, cross-browser compatibility, and professional component library while maintaining customization flexibility</li>
+                        <li><strong>GitHub Pages Deployment:</strong> Chose static site hosting on GitHub Pages for zero infrastructure costs, automatic HTTPS, reliable uptime, and seamless CI/CD integration</li>
+                        <li><strong>Sponsorship Integration:</strong> Built social impact directly into the enrollment process to differentiate SBTLC from competitors and create a purpose-driven platform</li>
+                        <li><strong>No Backend Initially:</strong> Started with client-side implementation using LocalStorage to validate business model and user workflows before investing in backend infrastructure</li>
+                    </ul>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-trophy"></i>
+                        Impact & Use Cases
+                    </h3>
+                    <div class="project-highlight-box">
+                        <p><strong>✓ Educational Equity:</strong> Implements "Enroll One, Empower Two" model where paying students directly fund scholarships for underprivileged learners</p>
+                        <p><strong>✓ Flexible Learning:</strong> Credit-based system allows families to book tutoring sessions on-demand without rigid subscription commitments</p>
+                        <p><strong>✓ Multi-Stakeholder Platform:</strong> Successfully manages interactions between students, tutors, sponsors, principals, and administrators in one unified system</p>
+                        <p><strong>✓ Transparent Impact:</strong> Sponsors receive detailed reports and dashboards showing exactly how their contributions create educational opportunities</p>
+                        <p><strong>✓ Institutional Partnerships:</strong> Principal dashboard enables schools to partner with SBTLC for supplementary tutoring programs with bulk management capabilities</p>
+                        <p><strong>✓ Tutor Empowerment:</strong> Provides tutors with professional platform to manage students, track earnings, and grow their teaching practice</p>
+                    </div>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-key"></i>
+                        Demo Account Credentials
+                    </h3>
+                    <p class="project-detail-text">
+                        To explore the platform's different user interfaces and functionalities, use the following test credentials:
+                    </p>
+                    <ul class="project-detail-list">
+                        <li><strong>Administrator:</strong> Email: <code>admin</code> | Password: <code>admin</code></li>
+                        <li><strong>Student:</strong> Email: <code>student</code> | Password: <code>student</code></li>
+                        <li><strong>Tutor:</strong> Email: <code>tutor</code> | Password: <code>tutor</code></li>
+                        <li><strong>Sponsor:</strong> Email: <code>sponsor</code> | Password: <code>sponsor</code></li>
+                        <li><strong>Principal:</strong> Email: <code>principal</code> | Password: <code>principal</code></li>
+                    </ul>
+                    <p class="project-detail-text">
+                        <em>Note: These are demonstration accounts for portfolio purposes. All data is stored locally in your browser.</em>
+                    </p>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3 class="project-detail-section-title">
+                        <i class="bi bi-book"></i>
+                        Future Enhancements
+                    </h3>
+                    <p class="project-detail-text">
+                        Planned improvements include backend integration with Django/Node.js for persistent data storage, real-time video conferencing integration for virtual tutoring sessions, automated matching algorithm refinements, payment gateway integration (Stripe/PayPal), mobile app development for iOS and Android, AI-powered learning recommendations, and expanded analytics dashboards with predictive insights for student performance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Chat Button -->
     <button class="chat-button" id="chatButton">
         <i class="bi bi-chat-dots"></i>
@@ -2894,7 +3559,30 @@
             pdfIframe.src = '';
             document.body.style.overflow = 'auto';
         }
+
+        // Project Modal Functions
+        function openProjectModal(projectId) {
+            const modalMap = {
+                'project1': 'projectModal1',
+                'project2': 'projectModal2',
+                'project3': 'projectModal3',
+                'project4': 'projectModal4',
+                'project5': 'projectModal5',
+                'project6': 'projectModal6'
+            };
+            
+            const modalId = modalMap[projectId];
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
         
+        function closeProjectModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
         // Close modal when clicking outside
         window.onclick = function(event) {
             const certModal = document.getElementById('certModal');
@@ -2903,6 +3591,7 @@
             const projectModal3 = document.getElementById('projectModal3');
             const projectModal4 = document.getElementById('projectModal4');
             const projectModal5 = document.getElementById('projectModal5');
+            const projectModal6 = document.getElementById('projectModal6');
             
             if (event.target == certModal) {
                 closeCertModal();
@@ -2922,28 +3611,9 @@
             if (event.target == projectModal5) {
                 closeProjectModal('projectModal5');
             }
-        }
-
-        // Project Modal Functions
-        function openProjectModal(projectId) {
-            const modalMap = {
-                'project1': 'projectModal1',
-                'project2': 'projectModal2',
-                'project3': 'projectModal3',
-                'project4': 'projectModal4',
-                'project5': 'projectModal5'
-            };
-            
-            const modalId = modalMap[projectId];
-            const modal = document.getElementById(modalId);
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeProjectModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            if (event.target == projectModal6) {
+                closeProjectModal('projectModal6');
+            }
         }
 
         // Theme toggle functionality
