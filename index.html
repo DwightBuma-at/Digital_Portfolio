@@ -4289,37 +4289,20 @@
         // Close modal when clicking outside
         window.onclick = function(event) {
             const certModal = document.getElementById('certModal');
-            const projectModal1 = document.getElementById('projectModal1');
-            const projectModal2 = document.getElementById('projectModal2');
-            const projectModal3 = document.getElementById('projectModal3');
-            const projectModal4 = document.getElementById('projectModal4');
-            const projectModal5 = document.getElementById('projectModal5');
-            const projectModal6 = document.getElementById('projectModal6');
-            const projectModal7 = document.getElementById('projectModal7');
-            
+
+            // Close certificate modal if clicked outside
             if (event.target == certModal) {
                 closeCertModal();
+                return;
             }
-            if (event.target == projectModal1) {
-                closeProjectModal('projectModal1');
-            }
-            if (event.target == projectModal2) {
-                closeProjectModal('projectModal2');
-            }
-            if (event.target == projectModal3) {
-                closeProjectModal('projectModal3');
-            }
-            if (event.target == projectModal4) {
-                closeProjectModal('projectModal4');
-            }
-            if (event.target == projectModal5) {
-                closeProjectModal('projectModal5');
-            }
-            if (event.target == projectModal6) {
-                closeProjectModal('projectModal6');
-            }
-            if (event.target == projectModal7) {
-                closeProjectModal('projectModal7');
+
+            // Close any project modal if clicked outside its content (covers projectModal1..projectModal11)
+            for (let i = 1; i <= 11; i++) {
+                const pm = document.getElementById('projectModal' + i);
+                if (pm && event.target == pm) {
+                    closeProjectModal('projectModal' + i);
+                    break;
+                }
             }
         }
 
